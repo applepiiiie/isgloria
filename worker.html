@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style_worker.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <link rel="shortcut icon" href="img/emblem-Gloria-Jeans.jpg" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&family=Roboto&display=swap" rel="stylesheet">
+    <title>Сотрудники</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="img/GJ_Logo_Gloria_Jeans (3) [Converted]_1 1.svg" alt="logo gj" class="logo_img">
+        </div>
+    </header>
+    <main class="main">
+        <div class="container main_container">
+            <section class="left_block">
+                <div class="navigation">
+                    <div class="user">
+                        <div class="user_photo">
+                            <img src="img/account-avatar.png" alt="user image" class="user_img">
+                        </div>
+                        <div class="name">
+                            <p class="user_name">Иванов Иван</p>
+                            <p class="user_position">менеджер</p>
+                        </div>
+                    </div>
+                    <ul class="menu_list">
+                        <li class="list_item"><a href="main.html" class="list_link">Главная</a></li>
+                        <li class="list_item active"><a href="worker.html" class="list_link">Сотрудники</a></li>
+                        <li class="list_item"><a href="#" class="list_link">Заказ</a></li>
+                        <li class="list_item"><a href="#" class="list_link">Обработка заказа</a></li>
+                        <li class="list_item"><a href="#" class="list_link">Договора</a></li>
+                        <li class="list_item"><a href="#" class="list_link">Поставщики</a></li>
+                        <li class="list_item"><a href="#" class="list_link">Закупка материалов</a></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="workers">
+                <div class="work_top">
+                    <div class="count_work">
+                        <p class="count_work-title">Соотношение числа сотрудников</p>
+                        <div id="donut-example" class="donut_example" style="height: 186px;"></div>
+                    </div>
+                    <div class="actions_work">
+                        <div class="action_add">
+                            <div class="add_photo"><img src="img/pngwing 4.png" alt="add photo" class="add_photo-img"></div>
+                            <p class="action_add-text">Добавить сотрудника</p>
+                        </div>
+                        <div class="action_delete">
+                            <div class="delete_photo"><img src="img/pngwing 3.png" alt="delete photo" class="delete_photo-img"></div>
+                            <p class="action_delete-text">Удалить сотрудника</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="work_bottom">
+                    <div class="search_work">
+                        <h2 class="search_title">Поиск сотрудника</h2>
+                        <form action="#" class="search_form">
+                            <div class="inputs">
+                                <input type="text" name="#" id="#" class="input_text" placeholder="ФИО">
+                                <input type="text" name="#" id="#" class="input_text" placeholder="Должность">
+                                <input type="text" name="#" id="#" class="input_text" placeholder="Стаж">
+                                <input type="text" name="#" id="#" class="input_text" placeholder="Идентификационный номер">
+                            </div>
+                            <input type="submit" value="Поиск" class="input_search">
+                        </form>
+                    </div>
+                    <div class="search_sesult">
+                        <h2 class="search_title">Результаты поиска</h2>
+                        <form action="#" class="res_form">
+                            <div class="res_work">
+                                <img src="img/account-avatar.png" alt="worker photo" class="res_work-img">
+                                <div class="worker_name">
+                                    <p class="worker_name-text text_bold">Иванов</p>
+                                    <p class="worker_name-text">Иван</p>
+                                    <p class="worker_name-text">Иванович</p>
+                                </div>
+                            </div>
+                            <div class="result_blocks">
+                                <div class="left_res">
+                                    <input type="text" name="#" id="#" class="input_text" placeholder="Пол">
+                                    <input type="text" name="#" id="#" class="input_text" placeholder="Дата рождения">
+                                    <input type="text" name="#" id="#" class="input_text" placeholder="Возраст">
+                                </div>
+                                <div class="right_res">
+                                    <input type="text" name="#" id="#" class="input_text" placeholder="Телефон">
+                                    <input type="text" name="#" id="#" class="input_text" placeholder="E-mail">
+                                    <input type="text" name="#" id="#" class="input_text" placeholder="Адрес проживания">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer_text">
+            <p class="text">При возникновении технических проблем обращаться по номеру:<p class="number">+00000000000</p></p>
+        </div>
+    </footer>
+    <script>
+        Morris.Donut({
+        //Контейнер
+        element: 'donut-example',
+        //Данные
+        data: [
+            {label: "Мужчины", value: 13000},
+            {label: "Женщины", value: 15000}
+        ],
+        //Массив цветов для заливки
+        colors:['#000C8D','#FF173D'],
+        //Авторазмер
+        resize:true
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style_main.css">
+    <link rel="shortcut icon" href="img/emblem-Gloria-Jeans.jpg" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&family=Roboto&display=swap" rel="stylesheet">
+    <title>Главная</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="img/GJ_Logo_Gloria_Jeans (3) [Converted]_1 1.svg" alt="logo gj" class="logo_img">
+        </div>
+    </header>
+    <main class="main">
+        <div class="container main_container">
+            <section class="left_block">
+                
+                <div class="navigation">
+                    <div class="user">
+                        <div class="user_photo">
+                            <img src="img/account-avatar.png" alt="user image" class="user_img">
+                        </div>
+                        <div class="name">
+                            <p class="user_name">Иванов Иван</p>
+                            <p class="user_position">менеджер</p>
+                        </div>
+                    </div>
+                    <ul class="menu_list">
+                        <li class="list_item active"><a href="main.html" class="list_link">Главная</a></li>
+                        <li class="list_item"><a href="worker.html" class="list_link">Сотрудники</a></li>
+                        <li class="list_item"><a href="#" class="list_link">Заказ</a></li>
+                        <li class="list_item"><a href="#" class="list_link">Обработка заказа</a></li>
+                        <li class="list_item"><a href="#" class="list_link">Договора</a></li>
+                        <li class="list_item"><a href="#" class="list_link">Поставщики</a></li>
+                        <li class="list_item"><a href="#" class="list_link">Закупка материалов</a></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="left_block">
+                <div class="info_top">
+                    <div class="info_top-left">
+                        <div class="info_date">
+                            <div class="info_num num_red">1</div>
+                            <div class="text_info">Октябрь, суббота, 2022г.</div>
+                        </div>
+                        <div class="info_meet">
+                            <div class="info_num num_blue">0</div>
+                            <div class="text_info">Сегодня нет никаких собраний</div>
+                        </div>
+                    </div>
+                    <div class="info_top-center">
+                        <img src="img/pngwing 2.png" alt="image order" class="info_img">
+                        <div class="info_textblock">
+                            <p class="info_num num_red">178</p>
+                            <p class="text_info">Новых заказов</p>
+                        </div>
+                    </div>
+                    <div class="info_top-right">
+                        <img src="img/pngwing 1.png" alt="image contract" class="info_img">
+                        <div class="info_textblock">
+                            <p class="info_num num_blue">5</p>
+                            <p class="text_info">Договоров ждут подписания</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info__bottom">
+                    <p class="info_bottom-text">Финансы</p>
+                   <div><canvas id="myChart"></canvas></div>
+                </div>
+            </section>
+            
+                
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer_text">
+            <p class="text">При возникновении технических проблем обращаться по номеру:<p class="number">+00000000000</p></p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script>
+        var dataFirst = {
+    label: "Статистика выручки",
+    data: [23000000000, 29000000000, 31000000000, 23000000000, 37000000000, 43000000000, 41000000000, 40000000000, 42000000000, 56000000000],
+    lineTension: 0,
+    fill: false,
+    backgroundColor: 'red',
+    borderColor: 'red',
+  };
+
+var dataSecond = {
+    label: "Статистика прибыли",
+    data: [2000000000, 2000000000, 4000000000, 2000000000, 5000000000, 2500000000, 2000000000, 1000000000, 3000000000, 8000000000],
+    lineTension: 0,
+    fill: false,
+    backgroundColor: 'blue',
+  borderColor: 'blue'
+  };
+  var speedData = {
+  labels: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"],
+  datasets: [dataFirst, dataSecond]
+};
+
+		let ctx = document.querySelector('#myChart').getContext('2d');
+		let myChart = new Chart(ctx, {
+			type: 'line',
+			data: speedData,
+			options: {
+                locale: 'ru-RU',
+				maintainAspectRatio: false,
+				responsive: true,
+				plugins: {
+					legend: {
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'rect'
+                        },
+						display: true,
+					}
+				},
+				interaction: {
+					intersect: false,
+				},
+				scales: {
+					y: {
+						display: true,
+						title: {
+							display: true,
+							text: ''
+						},
+						ticks: {
+                            callback: (value, index, values) => {
+                                return new Intl.NumberFormat('ru-RU', {
+                                    style: 'currency',
+                                    currency: 'RUB',
+                                    maximumSignificantDigits: 3
+                                }).format(value)
+                            },
+							stepSize: 20000000000,
+						},
+						suggestedMin: 20000000000,
+						suggestedMax: 60000000000
+					}
+				}
+			},
+		});
+	</script>
+</body>
+</html>
